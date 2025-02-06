@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FeatherModule } from 'angular-feather';
-import { Camera, Heart, LogIn } from 'angular-feather/icons';
+import { allIcons, Camera, Heart, LogIn } from 'angular-feather/icons';
 
 const icons = {
   Camera,
@@ -13,7 +13,7 @@ const icons = {
 @NgModule({
   imports: [
     CommonModule,
-    FeatherModule.pick(icons)
+    FeatherModule.pick(allIcons)
   ],
   exports: [
     FeatherModule

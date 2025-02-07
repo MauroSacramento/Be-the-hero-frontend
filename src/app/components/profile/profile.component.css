@@ -1,0 +1,44 @@
+.profile-container {
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 30px;
+  margin: 32px auto;
+}
+
+.profile-container header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-container .header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.profile-container header span{
+  font-size: 20px;
+  margin-left: 24px;
+}
+
+header .header-action{
+  display: flex;
+  align-items: center;
+}
+header .header-action a{
+  width: 260px;
+  margin-top: 0;
+}
+header .header-action button {
+  height: 60px;
+  width: 60px;
+  border-radius: 5px;
+  border: 1px solid #dcdce6;
+  background: transparent;
+  margin-left: 16px;
+  transition: border-color .2s;
+}
+header .header-action button:hover {
+  border-color: #999;
+}
+

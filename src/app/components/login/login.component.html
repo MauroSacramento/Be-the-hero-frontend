@@ -5,12 +5,12 @@
       <img src="/assets/logo@2x.png" alt="Logo Hero">
     </div>
     <div class="form">
-      <form>
+      <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
         <h1>Faça seu Login</h1>
         <div class="input-block">
-          <input type="text" placeholder="Enter your ID">
+          <input type="text" placeholder="Enter your ID" formControlName="id">
         </div>
-        <button class="button" type="submit" routerLink="/profile">Entrar</button>
+        <button class="button" type="submit" >Entrar</button>
       </form>
 
       <div class="cadastro">

@@ -11,13 +11,13 @@
         <p>Voltar para o login</p>
       </a>
     </section>
-    <form action="">
-      <input type="text" placeholder="Nome da ONG">
-      <input type="email" name="email" id="email" placeholder="E-mail">
-      <input type="number" placeholder="WhatsApp">
-      <div class="address">
-        <input type="text" placeholder="Cidade">
-        <input type="text" placeholder="UF" style="width: 80px;">
+    <form [formGroup]="form" (ngSubmit)="cadastrar($event)">
+      <input type="text" placeholder="Nome da ONG" formControlName="name" />
+      <input type="email" name="email" id="email" placeholder="E-mail" formControlName="email">
+      <input type="number" placeholder="WhatsApp" formControlName="whatsapp">
+      <div class="address" formGroupName="address">
+        <input type="text" placeholder="Cidade" formControlName="cidade">
+        <input type="text" placeholder="UF" style="width: 80px;" formControlName="estado">
       </div>
       <button type="submit" class="button">Cadastrar</button>
     </form>

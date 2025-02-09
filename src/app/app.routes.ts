@@ -7,6 +7,11 @@ import { NewCaseComponent } from './components/new-case/new-case.component';
 export const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'new', component: NewCaseComponent}
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      {path: 'new', component: NewCaseComponent}
+    ]
+  },
 ];

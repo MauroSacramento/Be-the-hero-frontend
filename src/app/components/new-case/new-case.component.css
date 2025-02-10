@@ -62,6 +62,7 @@ form textarea {
   margin-top: 6px;
   margin-bottom: 2px;
   resize: vertical;
+  padding-top: 10px;
 }
 
 form .action-btn {

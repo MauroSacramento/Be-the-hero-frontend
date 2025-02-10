@@ -11,13 +11,13 @@
         <p>Voltar para home</p>
       </a>
     </section>
-    <form>
+    <form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
       <input type="text" placeholder="Título do caso">
       <textarea name="" id="" placeholder="Descrição"></textarea>
       <input type="number" placeholder="Valor em reais">
       <div class="action-btn">
-        <button type="button" class="btn cancel">Cancelar</button>
-        <button type="button" class="btn save">Cadastrar</button>
+        <button type="reset" class="btn cancel" (click)="cancel()">Cancelar</button>
+        <button type="submit" class="btn save" (click)="onSubmit()">Cadastrar</button>
       </div>
     </form>
   </div>

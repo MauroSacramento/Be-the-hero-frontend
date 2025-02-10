@@ -11,7 +11,7 @@
         <p>Voltar para o login</p>
       </a>
     </section>
-    <form [formGroup]="form" (ngSubmit)="cadastrar($event)">
+    <form [formGroup]="form" (ngSubmit)="cadastrar()">
       <input type="text" placeholder="Nome da ONG" formControlName="name" />
       <input type="email" name="email" id="email" placeholder="E-mail" formControlName="email">
       <input type="number" placeholder="WhatsApp" formControlName="whatsapp">

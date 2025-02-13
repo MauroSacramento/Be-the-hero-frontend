@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { IconsModule } from '../../shared/icons/icons.module';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import { map } from 'rxjs/internal/operators/map';
 
 @Component({
   selector: 'app-login',
@@ -21,22 +22,25 @@ export class LoginComponent {
   });
 
   async onSubmit(){
-      const data = {
-        "id": this.LoginForm.controls.id_
-      }
+    const id_ = this.LoginForm.controls.id_.value;
+
+    const dados = {
+      "id": id_,
+    }
+
     if(this.LoginForm.invalid){
       return
     }
 
     try {
-      // localStorage.setItem("ongId", this.id);
-      // localStorage.setItem("ongName", this.ongName);
-      this.route.navigate(['/profile'])
+      await this.ongService.login(dados).pipe(map((res: string) => res)).subscribe(resData => {
+        this.ongName = resData;
+        this.route.navigate(['/profile'])
+      });
+
     } catch (error) {
       alert("Erro no login")
     }
-
-
 
   }
 

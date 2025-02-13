@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ONG } from '../model/ong';
 import { UrlCodec } from '@angular/common/upgrade';
+import { FormControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class OngService {
     return this.httpClient.post<string>(`${this.endPOint}ongs`, dados);
   }
 
-  login(id_ong: string) {
+  login(id_ong: {id: string|null}) {
     return this.httpClient.post<string>(`${this.endPOint}session`, id_ong);
   }
 

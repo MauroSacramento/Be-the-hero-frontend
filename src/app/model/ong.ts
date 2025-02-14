@@ -5,3 +5,11 @@ export interface ONG{
   city: string | null,
   uf: string | null,
 }
+
+export interface Case {
+  "id": number,
+	"title": string,
+	"description": string,
+	"value": number,
+	"ong_id": string
+}

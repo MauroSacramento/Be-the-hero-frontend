@@ -15,13 +15,13 @@ export class LoginComponent {
   private route = inject(Router);
   private ongService = inject(OngService);
 
-  ongName: string= "";
+  ongName: {name: string}= {name: ""};
 
   LoginForm = new FormGroup({
     id_: new FormControl('', {validators: [Validators.required]})
   });
 
-  async onSubmit(){
+  onSubmit(){
     const id_ = this.LoginForm.controls.id_.value;
 
     const dados = {
@@ -33,9 +33,15 @@ export class LoginComponent {
     }
 
     try {
-      await this.ongService.login(dados).pipe(map((res: string) => res)).subscribe(resData => {
-        this.ongName = resData;
-        this.route.navigate(['/profile'])
+      this.ongService.login(dados).pipe(map((res: string) => res)).subscribe(resData => {
+        this.ongName.name = resData;
+
+        if(dados.id){
+          localStorage.setItem("ongID", dados.id);
+          localStorage.setItem("ongName", this.ongName.name);
+        }
+
+        this.route.navigate(['/profile']);
       });
 
     } catch (error) {
